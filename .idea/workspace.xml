@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27e19045-d00f-40e4-b44f-4b04fc48048f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stades.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Dates.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Epreuves.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Epreuves.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Hopitaux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hopitaux.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Stades.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stades.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +153,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1XcOyVMZewHbJPirus0GPSbWqAv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -158,6 +166,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -192,7 +205,7 @@
       <workItem from="1581342171426" duration="12000" />
       <workItem from="1581342186920" duration="9495000" />
       <workItem from="1581423131315" duration="13657000" />
-      <workItem from="1581504275707" duration="5651000" />
+      <workItem from="1581504275707" duration="18789000" />
     </task>
     <servers />
   </component>
@@ -204,10 +217,10 @@
       <screen x="0" y="23" width="1680" height="950" />
     </state>
     <state x="304" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.950@0.23.1680.950" timestamp="1581423216243" />
-    <state x="570" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581504948652">
+    <state x="570" y="307" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581631566333">
       <screen x="0" y="23" width="1680" height="950" />
     </state>
-    <state x="570" y="307" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.950@0.23.1680.950" timestamp="1581504948652" />
+    <state x="570" y="307" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.950@0.23.1680.950" timestamp="1581631566333" />
     <state x="998" y="259" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581413817289">
       <screen x="0" y="23" width="1680" height="950" />
     </state>

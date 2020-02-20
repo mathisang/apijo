@@ -1,0 +1,77 @@
+[
+  {
+    "latitude": 48.8616971712805,
+    "longitude": 2.311607328162924,
+    "name": "Invalide"
+  },
+  {
+    "latitude": 48.86749771375845,
+    "longitude": 2.311570347812089,
+    "name": "Champs Elysée"
+  },
+  {
+    "latitude": 48.844289398452176,
+    "longitude": 2.381594594866464,
+    "name": "Daumesnil"
+  },
+  {
+    "latitude": 48.936181,
+    "longitude": 2.357443,
+    "name": "Saint-Denis"
+  },
+  {
+    "latitude": 48.86889239901695,
+    "longitude": 2.343963108027798,
+    "name": "Paris 2"
+  },
+  {
+    "latitude": 48.86714560393253,
+    "longitude": 2.331378562177072,
+    "name": "Paris 1"
+  },
+  {
+    "latitude": 48.88084426100817,
+    "longitude": 2.365722535844387,
+    "name": "Paris Canal de l’Ourq"
+  },
+  {
+    "latitude": 48.880652,
+    "longitude": 2.355151,
+    "name": "Gare du Nord"
+  },
+  {
+    "latitude": 48.854501002282504,
+    "longitude": 2.269214859531703,
+    "name": "Passy"
+  },
+  {
+    "latitude": 48.8382677,
+    "longitude": 2.2864206,
+    "name": "Paris 15 co"
+  },
+  {
+    "latitude": 48.8015674,
+    "longitude": 2.1166273,
+    "name": "Versailles"
+  },
+  {
+    "latitude": 48.7854119,
+    "longitude": 2.0478015,
+    "name": "Guyancour"
+  },
+  {
+    "latitude": 48.8755393,
+    "longitude": 2.3024263,
+    "name": "Paris 8"
+  },
+  {
+    "latitude": 48.8540096,
+    "longitude": 2.5783171,
+    "name": "Paris EST Marne-la-Vallée"
+  },
+  {
+    "latitude": 48.9236513,
+    "longitude": 2.355672,
+    "name": "Aubervilliers"
+  }
+]
