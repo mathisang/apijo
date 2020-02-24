@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -14,6 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     collectionOperations={"POST"},
  *     itemOperations={"GET"}
  * )
+ * @UniqueEntity("email", message="Un utilisateur avec cet adresse email existe déjà !")
  */
 class User implements UserInterface
 {
@@ -26,6 +29,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="Merci de renseigner un email !")
+     * @Assert\Email(message="Le mail doit être dans un format valide !")
      */
     private $email;
 
@@ -37,6 +42,7 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire !")
      */
     private $password;
 
@@ -44,6 +50,12 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Favoris", mappedBy="idUser")
      */
     private $favoris;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de rensigner votre prénom !")
+     */
+    private $prenom;
 
     public function __construct()
     {
@@ -155,6 +167,18 @@ class User implements UserInterface
                 $favori->setIdUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
 
         return $this;
     }

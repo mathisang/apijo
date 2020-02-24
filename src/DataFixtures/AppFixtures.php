@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\CasernesPompier;
 use App\Entity\Dates;
+use App\Entity\Epreuves;
 use App\Entity\Hopitaux;
 use App\Entity\PostesPolice;
 use App\Entity\Stades;
@@ -61,13 +62,13 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des pompiers
 
-        $dataPompier = file_get_contents('http://127.0.0.1:8000/pompiersLoc.json');
+        $dataPompier = file_get_contents('http://vps791823.ovh.net/pompiersLoc.json');
         $decodedDataPompier = json_decode($dataPompier);
 
 
         for ($dp = 0; $dp < count($decodedDataPompier->features); $dp++) {
 
-            $dataPompierMore = file_get_contents('http://127.0.0.1:8000/pompiersOld.json');
+            $dataPompierMore = file_get_contents('http://vps791823.ovh.net/pompiersOld.json');
             $decodedDataPompierMore = json_decode($dataPompierMore);
 
             for ($dcp = 0; $dcp < count($decodedDataPompierMore->features); $dcp++) {
@@ -105,7 +106,7 @@ class AppFixtures extends Fixture
 
         }
 
-        $dataPoliceNew = file_get_contents('http://127.0.0.1:8000/json/newpolice.json');
+        $dataPoliceNew = file_get_contents('http://vps791823.ovh.net/json/newpolice.json');
         $decodedDataPoliceNew = json_decode($dataPoliceNew);
 
         for ($dpn = 0; $dpn < count($decodedDataPoliceNew); $dpn++) {
@@ -124,7 +125,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des Stades
 
-        $dataStade = file_get_contents('http://127.0.0.1:8000/json/stades.json');
+        $dataStade = file_get_contents('http://vps791823.ovh.net/json/stades.json');
         $decodedDataStade = json_decode($dataStade);
 
         for ($ds = 0; $ds < count($decodedDataStade[2]->data); $ds++) {
@@ -136,13 +137,26 @@ class AppFixtures extends Fixture
                 ->setCapacite($decodedDataStade[2]->data[$ds]->capacite)
                 ->setLatitude($decodedDataStade[2]->data[$ds]->latitude)
                 ->setLongitude($decodedDataStade[2]->data[$ds]->longitude);
-
             $manager->persist($stade);
+
+        }
+
+        // Récupère la DATA des Dates
+
+        $dataDates = file_get_contents('http://vps791823.ovh.net/json/dates.json');
+        $decodedDataDates = json_decode($dataDates);
+
+        for ($dd = 0; $dd < count($decodedDataDates[2]->data); $dd++) {
+
+            $tableDate = new Dates();
+
+            $tableDate->setDate(new \DateTime($decodedDataDates[2]->data[$dd]->date));
+            $manager->persist($tableDate);
 
         }
 
         $manager->flush();
 
-        // APRÈS L'IMPORT, UNIQUEMENT À IMPORTER LA BASE SQL DATES ET INJECTER LES ÉPREUVES
+        // APRÈS L'IMPORT, INJECTER LES ÉPREUVES
     }
 }

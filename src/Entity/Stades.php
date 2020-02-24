@@ -16,10 +16,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     collectionOperations={"GET"},
  *     itemOperations={"GET"},
  *     normalizationContext={
- *      "groups"={"testCalcul"}
+ *      "groups"={"stades"}
  *     }
  * )
- * @ApiFilter(SearchFilter::class, properties={"epreuves.idDate.date":"partial"})
+ * @ApiFilter(SearchFilter::class, properties={"epreuves.idDate.date":"start"})
  */
 class Stades
 {
@@ -32,37 +32,38 @@ class Stades
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
      */
     private $ville;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
+     * @Groups({"epreuves"})
      */
     private $capacite;
 
     /**
      * @ORM\Column(type="string", length=20)
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
      */
     private $latitude;
 
     /**
      * @ORM\Column(type="string", length=20)
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
      */
     private $longitude;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Epreuves", mappedBy="idStade")
-     * @Groups({"testCalcul"})
+     * @Groups({"stades"})
      */
     private $epreuves;
 
@@ -226,13 +227,34 @@ class Stades
         return $this;
     }
 
-    /**
-     * Permet de test un calcul
-     * @Groups("testCalcul")
-     * @return int|null
-     */
-    public function getCalcul(): ?int
+    ///**
+    // * Calcul afluence max
+   //  * @Groups("stades")
+     //* @return float
+     //*/
+    /*
+    public function getMaxAffluence(): ?float
     {
-        return 5+9;
+        for ($c = 1; $this->getEpreuves()->count(); $c++) {
+            $this->getEpreuves()[1]->getTotalAffluence();
+        }
+    }*/
+
+    /**
+     * Calcul Affluence epreuve
+     * @Groups({"stades"})
+     * @return float|null
+     */
+    public function getMaxAffluence(): ?float
+    {
+        $maxAffluence = 0;
+        for ($e = 0; $e < count($this->epreuves); $e++) {
+            if($maxAffluence < $this->epreuves[$e]->getTotalAffluence()) {
+                $maxAffluence = $this->epreuves[$e]->getTotalAffluence();
+            }
+        }
+        return $maxAffluence;
     }
+
+
 }

@@ -2,17 +2,22 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DatesRepository")
  * @ApiResource(
  *     collectionOperations={"GET"},
- *     itemOperations={"GET"}
+ *     itemOperations={"GET"},
+ *     normalizationContext={
+ *      "groups"={"dates"}
+ *     }
  * )
  */
 class Dates
@@ -21,12 +26,15 @@ class Dates
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"dates"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups({"testCalcul"})
+     * @Groups({"dates"})
+     * @Groups({"stades"})
+     * @Groups({"epreuves"})
      */
     private $date;
 
@@ -123,5 +131,19 @@ class Dates
         }
 
         return $this;
+    }
+
+    /**
+     * Calcul Affluence epreuve
+     * @Groups({"dates"})
+     * @return float|null
+     */
+    public function getTotalAffluenceJournalier(): ?float
+    {
+        $totalAffluenceJournalier = 0;
+        for ($e = 0; $e < count($this->epreuves); $e++) {
+            $totalAffluenceJournalier += $this->epreuves[$e]->getTotalAffluence();
+        }
+        return $totalAffluenceJournalier;
     }
 }
