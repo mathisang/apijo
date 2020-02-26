@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -14,7 +15,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ApiResource(
  *     collectionOperations={"POST"},
- *     itemOperations={"GET"}
+ *     itemOperations={"GET"},
+ *      normalizationContext={
+ *      "groups"={"users"}
+ *     }
  * )
  * @UniqueEntity("email", message="Un utilisateur avec cet adresse email existe déjà !")
  */
@@ -24,6 +28,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"users"})
      */
     private $id;
 
@@ -31,11 +36,13 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(message="Merci de renseigner un email !")
      * @Assert\Email(message="Le mail doit être dans un format valide !")
+     * @Groups({"users"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups({"users"})
      */
     private $roles = [];
 
@@ -48,12 +55,14 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Favoris", mappedBy="idUser")
+     * @Groups({"users"})
      */
     private $favoris;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci de rensigner votre prénom !")
+     * @Groups({"users"})
      */
     private $prenom;
 
@@ -86,7 +95,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -113,7 +122,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self

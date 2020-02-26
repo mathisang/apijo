@@ -1,0 +1,27 @@
+[
+  {"type":"header","version":"4.9.0.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+  {"type":"database","name":"parisjo"},
+  {"type":"table","name":"zone_repli","database":"parisjo","data":
+  [
+    {"id":"279","nom":"EDMOND MICHELET","adresse":"70 RUE DE L' OURCQ","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"580","latitude":"48.893666558453","longitude":"2.3764858343691"},
+    {"id":"280","nom":"OCTAVE GREARD","adresse":"28 RUE DU GENERAL FOY","cp":"75108","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"292","latitude":"48.87881483045","longitude":"2.3176935383779"},
+    {"id":"282","nom":"GUY FLAVIEN","adresse":"6 RUE D' ARTAGNAN","cp":"75112","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"102","latitude":"48.845408024768","longitude":"2.3861372976167"},
+    {"id":"283","nom":"CLAUDE BERNARD","adresse":"1 AVENUE DU PARC DES PRINCES","cp":"75116","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"312","latitude":"48.841974685133","longitude":"2.2549423415935"},
+    {"id":"294","nom":"VICTOR DURUY","adresse":"33 BOULEVARD DES INVALIDES","cp":"75107","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"503","latitude":"48.852300015928","longitude":"2.3148479383547"},
+    {"id":"296","nom":"MOZART","adresse":"7 rue JOMARD","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"481","latitude":"48.889575954549","longitude":"2.3793082125417"},
+    {"id":"297","nom":"ANDRE CITROEN","adresse":"208 rue SAINT-CHARLES","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"428","latitude":"48.838859572541","longitude":"2.2785902524072"},
+    {"id":"299","nom":"PAUL VERLAINE","adresse":"167 RUE DE BERCY","cp":"75112","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"195","latitude":"48.842607454453","longitude":"2.3752385503958"},
+    {"id":"300","nom":"GUILLAUME APOLLINAIRE","adresse":"39 avenue EMILE ZOLA","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"247","latitude":"48.8465711164","longitude":"2.282679642129"},
+    {"id":"301","nom":"HECTOR BERLIOZ","adresse":"17 rue GEORGETTE AGUTTE","cp":"75118","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"282","latitude":"48.895814670575","longitude":"2.3328156749666"},
+    {"id":"304","nom":"JEAN DE LA FONTAINE","adresse":"1 PLACE DE LA PORTE MOLITOR","cp":"75116","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"470","latitude":"48.845190604383","longitude":"2.256577695448"},
+    {"id":"306","nom":"JANSON DE SAILLY","adresse":"106 RUE DE LA POMPE","cp":"75116","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"257","latitude":"48.865560916839","longitude":"2.2794523152186"},
+    {"id":"308","nom":"CLAUDE DEBUSSY","adresse":"4 PLACE DU COMMERCE","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"121","latitude":"48.845291477337","longitude":"2.291597647474"},
+    {"id":"311","nom":"JULES ROMAINS","adresse":"6 rue CLER","cp":"75107","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"526","latitude":"48.858464586156","longitude":"2.3054337930921"},
+    {"id":"313","nom":"CAMILLE SEE","adresse":"11 rue LEON LHERMITTE","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"433","latitude":"48.842990800409","longitude":"2.2969840307174"},
+    {"id":"316","nom":"EDGAR VARESE","adresse":"16 rue ADOLPHE MILLE","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"370","latitude":"48.889159905051","longitude":"2.3885867483899"},
+    {"id":"319","nom":"ANTOINE COYSEVOX","adresse":"16 rue COYSEVOX","cp":"75118","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"478","latitude":"48.891617627696","longitude":"2.3298201952318"},
+    {"id":"320","nom":"SUZANNE LACORE","adresse":"149 BOULEVARD MACDONALD","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"371","latitude":"48.898608723283","longitude":"2.3788765489695"},
+    {"id":"325","nom":"AMEDEO MODIGLIANI","adresse":"1 RUE DE CHERBOURG","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"437","latitude":"48.831702737297","longitude":"2.3047394660131"}
+  ]
+  }
+]

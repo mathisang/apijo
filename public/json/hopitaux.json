@@ -1,0 +1,34 @@
+[
+  {"type":"header","version":"4.9.0.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+  {"type":"database","name":"parisjo"},
+  {"type":"table","name":"hopitaux","database":"parisjo","data":
+  [
+    {"id":"594","nom":"HOPITAL EUROPEEN DE PARIS LA ROSERAIE","latitude":"48.9054665","longitude":"2.3900414"},
+    {"id":"600","nom":"CLINIQUE DE L'ESTREE","latitude":"48.9538208","longitude":"2.3680389"},
+    {"id":"604","nom":"HOPITAL LOUIS MOURIER (AP-HP)","latitude":"48.9235629","longitude":"2.2363296"},
+    {"id":"605","nom":"C.A.S.H. DE NANTERRE","latitude":"48.8903182","longitude":"2.1905973"},
+    {"id":"608","nom":"CH DES QUATRE VILLES SITE ST CLOUD","latitude":"48.8439489","longitude":"2.218349"},
+    {"id":"617","nom":"CLINIQUE CLAUDE BERNARD SAS","latitude":"48.9812151","longitude":"2.2645239"},
+    {"id":"620","nom":"HOPITAL NECKER ENFANTS MALADES (AP-HP)","latitude":"48.8463516","longitude":"2.3154638"},
+    {"id":"623","nom":"HOPITAL PRIVE PARLY 2","latitude":"48.830203","longitude":"2.1198163"},
+    {"id":"628","nom":"HOPITAL SAINT-CAMILLE - BRY S\/M","latitude":"48.8332434","longitude":"2.5279568"},
+    {"id":"634","nom":"GPE HOSP ARMAND TROUSSEAU-ROCHE GUYON","latitude":"48.8408083","longitude":"2.3881833"},
+    {"id":"635","nom":"HOPITAL BEAUJON (AP-HP)","latitude":"48.9075623","longitude":"2.3082998"},
+    {"id":"637","nom":"HOPITAL PRIVE DE LA SEINE SAINT DENIS","latitude":"48.9363668","longitude":"2.457888"},
+    {"id":"640","nom":"GHI LE RAINCY-MONTFERMEIL","latitude":"48.901996","longitude":"2.5717252"},
+    {"id":"641","nom":"GROUPE HOSP. PITIE-SALPETRIERE (AP-HP)","latitude":"48.8386062","longitude":"2.3608109"},
+    {"id":"652","nom":"CLINIQUE DES FRANCISCAINES","latitude":"48.795226","longitude":"2.1385684"},
+    {"id":"657","nom":"GPE HOSP BROUSSAIS-HEGP","latitude":"48.839737","longitude":"2.2728302"},
+    {"id":"660","nom":"GPE HOSP SAINT-JOSEPH","latitude":"48.836198","longitude":"2.3220607"},
+    {"id":"664","nom":"CHNO DES QUINZE-VINGT PARIS","latitude":"48.8512676","longitude":"2.372193"},
+    {"id":"669","nom":"HOPITAL AMBROISE PARE (AP-HP)","latitude":"48.8489223","longitude":"2.2372609"},
+    {"id":"671","nom":"HOPITAL PRIVE DE L'OUEST PARISIEN","latitude":"48.7792822","longitude":"1.9897747"},
+    {"id":"673","nom":"Groupe Hospitalier Diaconesses Croix Saint Simon","latitude":"48.8448201","longitude":"2.3916175"},
+    {"id":"675","nom":"C.H. ROBERT BALLANGER","latitude":"48.9505355","longitude":"2.4916961"},
+    {"id":"689","nom":"CENTRE HOSPITALIER DE GONESSE","latitude":"48.9809849","longitude":"2.4265844"},
+    {"id":"690","nom":"CH DE NEUILLY\/SEINE","latitude":"48.8910322","longitude":"2.262505"},
+    {"id":"694","nom":"CENTRE HOSPITALIER  DE VERSAILLES","latitude":"48.8087366","longitude":"2.1336057"},
+    {"id":"709","nom":"Hôpital privé de Marne Chantereine","latitude":"48.885056","longitude":"2.629637"}
+  ]
+  }
+]

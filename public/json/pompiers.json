@@ -1,0 +1,33 @@
+[
+  {"type":"header","version":"4.9.0.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+  {"type":"database","name":"parisjo"},
+  {"type":"table","name":"casernes_pompier","database":"parisjo","data":
+  [
+    {"id":"55","nom":"LA COURNEUVE","adresse":"24, rue de la Convention","ville":"La Courneuve","cp":"93120","latitude":"48.928708449651","longitude":"2.3888925434047"},
+    {"id":"56","nom":"PANTIN","adresse":"93-95, rue du Cartier Bresson","ville":"Pantin","cp":"93500","latitude":"48.899215162304","longitude":"2.4080063430644"},
+    {"id":"57","nom":"AUBERVILLIERS","adresse":"47-49, rue de la commune de Paris","ville":"Aubervilliers","cp":"93300","latitude":"48.910924395514","longitude":"2.3814375893109"},
+    {"id":"58","nom":"SAINT DENIS","adresse":"Fort de la Briche","ville":"Saint-Denis","cp":"93200","latitude":"48.945207840648","longitude":"2.3413577107287"},
+    {"id":"59","nom":"SAINT OUEN","adresse":"89, rue du Dc Bauer","ville":"Saint-Ouen","cp":"93400","latitude":"48.908221630427","longitude":"2.3415291687543"},
+    {"id":"60","nom":"GENNEVILLIERS","adresse":"136-140, rue Henri Barbusse","ville":"Gennevilliers","cp":"92230","latitude":"48.929861001606","longitude":"2.3020370835191"},
+    {"id":"61","nom":"MALAR","adresse":"7, rue Malar","ville":"Paris","cp":"75007","latitude":"48.86160258059","longitude":"2.3066019107619"},
+    {"id":"62","nom":"BITCHE","adresse":"2, place Bitche","ville":"Paris","cp":"75019","latitude":"48.889215276408","longitude":"2.3806023103091"},
+    {"id":"64","nom":"MONTMARTRE","adresse":"12, rue Carpeaux","ville":"Paris","cp":"75018","latitude":"48.891143583528","longitude":"2.3334072512991"},
+    {"id":"66","nom":"DAUPHINE","adresse":"8, rue Ménil","ville":"Paris","cp":"75016","latitude":"48.868540757995","longitude":"2.2848398924852"},
+    {"id":"67","nom":"AUTEUIL","adresse":"2-4, rue François Millet","ville":"Paris","cp":"75016","latitude":"48.850783723489","longitude":"2.2738130822239"},
+    {"id":"72","nom":"CHALIGNY","adresse":"26, rue de Chaligny","ville":"Paris","cp":"75012","latitude":"48.847530005067","longitude":"2.3852015242671"},
+    {"id":"73","nom":"GRENELLE","adresse":"6, place Violet","ville":"Paris","cp":"75015","latitude":"48.844224577215","longitude":"2.2909162949925"},
+    {"id":"78","nom":"COLOMBIER","adresse":"11, rue du Vieux Colombier","ville":"Paris","cp":"75006","latitude":"48.851129358492","longitude":"2.3321877233867"},
+    {"id":"81","nom":"SAINT HONORE","adresse":"10, rue St-Anne","ville":"Paris","cp":"75001","latitude":"48.865826419251","longitude":"2.3362087723897"},
+    {"id":"82","nom":"NANTERRE","adresse":"20, rue de Stalingrad","ville":"Nanterre","cp":"92000","latitude":"48.899786457807","longitude":"2.2026056769936"},
+    {"id":"83","nom":"SAINT CLOUD","adresse":"40, ave du Maréchal","ville":"Saint-Cloud","cp":"92210","latitude":"48.847773102384","longitude":"2.2109435835335"},
+    {"id":"90","nom":"NATIVITE","adresse":"5, place Lachambaudie","ville":"Paris","cp":"75012","latitude":"48.836483926516","longitude":"2.3873502785916"},
+    {"id":"96","nom":"PUTEAUX","adresse":"106, rue de Verdun","ville":"Puteaux","cp":"92800","latitude":"48.877534125201","longitude":"2.2348940457084"},
+    {"id":"97","nom":"Vaires-sur-Marne","adresse":"23 rue de chelles","ville":"Vaires-sur-Marne","cp":"77360","latitude":"48.874276","longitude":"2.636507"},
+    {"id":"98","nom":"SDIS 77 Sapeurs-Pompiers","adresse":"1 rue du village","ville":"Lognes","cp":"77185","latitude":"48.837968","longitude":"2.626791"},
+    {"id":"99","nom":"CS magny les hameaux","adresse":"La croix du bois","ville":"Magny les Hameaux","cp":"78114","latitude":"48.752074","longitude":"2.063648"},
+    {"id":"100","nom":"Pompiers Bois d'Arcy","adresse":"Avenue Jean Jaures","ville":"Bois d'Arcy","cp":"78390","latitude":"48.800987","longitude":"2.032407"},
+    {"id":"101","nom":"\r\nCIS Plaisir","adresse":"708 avenue François Mitterand","ville":"Plaisir","cp":"78370","latitude":"48.818260","longitude":"1.960410"},
+    {"id":"102","nom":"Centre de Secours Principal de Versailles","adresse":"Avenue de Paris","ville":"Versailles","cp":"78000","latitude":"48.801105","longitude":"2.130681"}
+  ]
+  }
+]

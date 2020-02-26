@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -44,8 +45,7 @@ class Stades
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"stades"})
-     * @Groups({"epreuves"})
+     * @Groups({"stades", "epreuves"})
      */
     private $capacite;
 
@@ -69,6 +69,7 @@ class Stades
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\ImagesStades", mappedBy="idStade", cascade={"persist", "remove"})
+     * @Groups({"stades"})
      */
     private $imagesStades;
 
@@ -240,21 +241,7 @@ class Stades
         }
     }*/
 
-    /**
-     * Calcul Affluence epreuve
-     * @Groups({"stades"})
-     * @return float|null
-     */
-    public function getMaxAffluence(): ?float
-    {
-        $maxAffluence = 0;
-        for ($e = 0; $e < count($this->epreuves); $e++) {
-            if($maxAffluence < $this->epreuves[$e]->getTotalAffluence()) {
-                $maxAffluence = $this->epreuves[$e]->getTotalAffluence();
-            }
-        }
-        return $maxAffluence;
-    }
+   
 
 
 }

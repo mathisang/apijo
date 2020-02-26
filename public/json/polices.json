@@ -1,0 +1,35 @@
+[
+  {"type":"header","version":"4.9.0.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+  {"type":"database","name":"parisjo"},
+  {"type":"table","name":"postes_police","database":"parisjo","data":
+  [
+    {"id":"82","nom":"VILLENEUVE LA GARENNE","latitude":"48.9317565","longitude":"2.3312809","description":"Commissariat central"},
+    {"id":"88","nom":"PANTIN","latitude":"48.8932377","longitude":"2.4054533","description":"Commissariat central"},
+    {"id":"89","nom":"AULNAY-SOUS-BOIS","latitude":"48.9146017","longitude":"2.3880711","description":"Commissariat central"},
+    {"id":"90","nom":"COLOMBES","latitude":"48.9218516","longitude":"2.2586868","description":"Commissariat central"},
+    {"id":"93","nom":"LE BLANC-MESNIL","latitude":"48.938876","longitude":"2.4641883","description":"Commissariat central"},
+    {"id":"94","nom":"NANTERRE","latitude":"48.8923012","longitude":"2.2056955","description":"Commissariat central"},
+    {"id":"106","nom":"ISSY LES MOULINEAUX","latitude":"48.8233737","longitude":"2.270274","description":"Commissariat central"},
+    {"id":"113","nom":"LA GARENNE COLOMBES","latitude":"48.906106","longitude":"2.2406057","description":"Commissariat central"},
+    {"id":"115","nom":"BOULOGNE BILLANCOURT","latitude":"48.8352357","longitude":"2.2408952","description":"Commissariat central"},
+    {"id":"116","nom":"GENNEVILLIERS","latitude":"48.9246428","longitude":"2.2926329","description":"Commissariat central"},
+    {"id":"137","nom":"SAINT CLOUD \/ Garches \/ Vaucresson \/ Marnes La Coquette","latitude":"48.845659","longitude":"2.2200178","description":"Commissariat central"},
+    {"id":"142","nom":"LA DEFENSE","latitude":"48.892096","longitude":"2.2445963","description":"Commissariat central"},
+    {"id":"148","nom":"Invalide","latitude":"48.86169717128","longitude":"2.3116073281629","description":"Commissariat"},
+    {"id":"149","nom":"Champs Elysée","latitude":"48.867497713758","longitude":"2.3115703478121","description":"Commissariat"},
+    {"id":"150","nom":"Daumesnil","latitude":"48.844289398452","longitude":"2.3815945948665","description":"Commissariat"},
+    {"id":"151","nom":"Saint-Denis","latitude":"48.936181","longitude":"2.357443","description":"Commissariat"},
+    {"id":"152","nom":"Paris 2","latitude":"48.868892399017","longitude":"2.3439631080278","description":"Commissariat"},
+    {"id":"153","nom":"Paris 1","latitude":"48.867145603933","longitude":"2.3313785621771","description":"Commissariat"},
+    {"id":"154","nom":"Paris Canal de l’Ourq","latitude":"48.880844261008","longitude":"2.3657225358444","description":"Commissariat"},
+    {"id":"155","nom":"Gare du Nord","latitude":"48.880652","longitude":"2.355151","description":"Commissariat"},
+    {"id":"156","nom":"Passy","latitude":"48.854501002283","longitude":"2.2692148595317","description":"Commissariat"},
+    {"id":"157","nom":"Paris 15 co","latitude":"48.8382677","longitude":"2.2864206","description":"Commissariat"},
+    {"id":"158","nom":"Versailles","latitude":"48.8015674","longitude":"2.1166273","description":"Commissariat"},
+    {"id":"159","nom":"Guyancour","latitude":"48.7854119","longitude":"2.0478015","description":"Commissariat"},
+    {"id":"160","nom":"Paris 8","latitude":"48.8755393","longitude":"2.3024263","description":"Commissariat"},
+    {"id":"161","nom":"Paris EST Marne-la-Vallée","latitude":"48.8540096","longitude":"2.5783171","description":"Commissariat"},
+    {"id":"162","nom":"Aubervilliers","latitude":"48.9236513","longitude":"2.355672","description":"Commissariat"}
+  ]
+  }
+]

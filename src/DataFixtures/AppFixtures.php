@@ -8,52 +8,88 @@ use App\Entity\Epreuves;
 use App\Entity\Hopitaux;
 use App\Entity\PostesPolice;
 use App\Entity\Stades;
+use App\Entity\User;
 use App\Entity\ZoneRepli;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    /**
+     * Encoder de mot de passe
+     * @var UserPasswordEncoderInterface
+     */
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
 
+        // Crée 5 comptes pour ministres
+        for ($us = 1; $us <= 5; $us++) {
+            $user = new User();
+
+            $hash = $this->encoder->encodePassword($user, "password" . $us);
+
+            $user->setEmail("ministre" . $us . "@gouv.fr")
+                ->setPrenom("Ministre " . $us)
+                ->setPassword($hash);
+
+            $manager->persist($user);
+        }
+
+        // Crée 1 compte pour SUPER ADMIN
+        for ($usa = 1; $usa < 2; $usa++) {
+            $userAdmin = new User();
+
+            $hash = $this->encoder->encodePassword($userAdmin, "admin" . $usa);
+
+            $userAdmin->setEmail("admin@gouv.fr")
+                ->setPrenom("Administrateur")
+                ->setRoles(["ROLE_ADMIN"])
+                ->setPassword($hash);
+
+            $manager->persist($userAdmin);
+        }
+
         // Récupère la DATA des zones_repli
 
-        $dataRepli = file_get_contents('https://opendata.paris.fr/api/records/1.0/search/?dataset=etablissements-scolaires-colleges&rows=230');
+        $dataRepli = file_get_contents('http://vps791823.ovh.net/json/replis.json');
         $decodedDataRepli = json_decode($dataRepli);
 
-        for ($dr = 0; $dr < count($decodedDataRepli->records); $dr++) {
-            $arr = substr($decodedDataRepli->records[$dr]->fields->arr_insee, 3);
-            if ($arr === "07" || $arr === "15" || $arr === "12" || $arr === "08" || $arr === "18" || $arr === "19" || $arr === "16") {
-                if ($decodedDataRepli->records[$dr]->fields->id_projet === "COLLEGES (année scolaire 2019/2020)") {
-                    $repli = new ZoneRepli();
+        for ($dr = 0; $dr < count($decodedDataRepli[2]->data); $dr++) {
 
-                    $repli->setNom($decodedDataRepli->records[$dr]->fields->libelle)
-                        ->setAdresse($decodedDataRepli->records[$dr]->fields->adresse)
-                        ->setCp($decodedDataRepli->records[$dr]->fields->arr_insee)
-                        ->setType($decodedDataRepli->records[$dr]->fields->id_projet)
-                        ->setLatitude($decodedDataRepli->records[$dr]->fields->geo_shape->coordinates[1])
-                        ->setLongitude($decodedDataRepli->records[$dr]->fields->geo_shape->coordinates[0])
-                        ->setCapacite(mt_rand(100, 600));
+            $repli = new ZoneRepli();
 
-                    $manager->persist($repli);
-                }
+            $repli->setNom($decodedDataRepli[2]->data[$dr]->nom)
+                ->setAdresse($decodedDataRepli[2]->data[$dr]->adresse)
+                ->setCp($decodedDataRepli[2]->data[$dr]->cp)
+                ->setType($decodedDataRepli[2]->data[$dr]->type)
+                ->setLatitude($decodedDataRepli[2]->data[$dr]->latitude)
+                ->setLongitude($decodedDataRepli[2]->data[$dr]->longitude)
+                ->setCapacite(mt_rand(100, 600));
 
-            }
+            $manager->persist($repli);
+
         }
 
 
         // Récupère la DATA des hopitaux
 
-        $dataHopital = file_get_contents('https://data.iledefrance.fr/api/records/1.0/search/?dataset=enquete-sur-les-structures-des-urgences-hospitalieres&rows=115&facet=dep&facet=type_d_accueil&facet=circuit_court_ambulatoire&facet=acces_direct_dans_des_services&facet=acces_direct_en_cardiologie&facet=acces_direct_en_neurologie&facet=acces_direct_en_gynecologie&facet=acces_direct_en_geriatrie&facet=acces_direct_en_ophtalmologie&facet=acces_direct_dans_un_autre_services');
+        $dataHopital = file_get_contents('http://vps791823.ovh.net/json/hopitaux.json');
         $decodedDataHopital = json_decode($dataHopital);
 
-        for ($dh = 0; $dh < count($decodedDataHopital->records); $dh++) {
+        for ($dh = 0; $dh < count($decodedDataHopital[2]->data); $dh++) {
             $hopital = new Hopitaux();
 
-            $hopital->setNom($decodedDataHopital->records[$dh]->fields->nom_de_l_etablissement)
-                ->setLatitude($decodedDataHopital->records[$dh]->geometry->coordinates[1])
-                ->setLongitude($decodedDataHopital->records[$dh]->geometry->coordinates[0]);
+            $hopital->setNom($decodedDataHopital[2]->data[$dh]->nom)
+                ->setLatitude($decodedDataHopital[2]->data[$dh]->latitude)
+                ->setLongitude($decodedDataHopital[2]->data[$dh]->longitude);
 
             $manager->persist($hopital);
 
@@ -62,63 +98,38 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des pompiers
 
-        $dataPompier = file_get_contents('http://vps791823.ovh.net/pompiersLoc.json');
+        $dataPompier = file_get_contents('http://vps791823.ovh.net/json/pompiers.json');
         $decodedDataPompier = json_decode($dataPompier);
 
+        for ($dp = 0; $dp < count($decodedDataPompier[2]->data); $dp++) {
 
-        for ($dp = 0; $dp < count($decodedDataPompier->features); $dp++) {
+            $pompier = new CasernesPompier();
 
-            $dataPompierMore = file_get_contents('http://vps791823.ovh.net/pompiersOld.json');
-            $decodedDataPompierMore = json_decode($dataPompierMore);
+            $pompier->setNom($decodedDataPompier[2]->data[$dp]->nom)
+                ->setAdresse($decodedDataPompier[2]->data[$dp]->adresse)
+                ->setVille($decodedDataPompier[2]->data[$dp]->ville)
+                ->setCp($decodedDataPompier[2]->data[$dp]->cp)
+                ->setLatitude($decodedDataPompier[2]->data[$dp]->latitude)
+                ->setLongitude($decodedDataPompier[2]->data[$dp]->longitude);
 
-            for ($dcp = 0; $dcp < count($decodedDataPompierMore->features); $dcp++) {
-                if ($decodedDataPompierMore->features[$dcp]->nom === $decodedDataPompier->features[$dp]->properties->DENO_CS) {
-
-                    $pompier = new CasernesPompier();
-
-                    $pompier->setNom($decodedDataPompier->features[$dp]->properties->DENO_CS)
-                        ->setAdresse($decodedDataPompierMore->features[$dcp]->adresse)
-                        ->setVille($decodedDataPompierMore->features[$dcp]->ville)
-                        ->setCp($decodedDataPompierMore->features[$dcp]->code_postal)
-                        ->setLatitude($decodedDataPompier->features[$dp]->geometry->coordinates[1])
-                        ->setLongitude($decodedDataPompier->features[$dp]->geometry->coordinates[0]);
-
-                    $manager->persist($pompier);
-                }
-            }
+            $manager->persist($pompier);
         }
+
 
         // Récupère la DATA des postes de police
 
-        $dataPolice = file_get_contents('https://data.iledefrance.fr/api/records/1.0/search/?dataset=cartographie-des-emplacements-des-commissariats-a-paris-et-petite-couronne&rows=93');
+        $dataPolice = file_get_contents('http://vps791823.ovh.net/json/polices.json');
         $decodedDataPolice = json_decode($dataPolice);
 
-        for ($dp = 0; $dp < count($decodedDataPolice->records); $dp++) {
-            if (!empty($decodedDataPolice->records[$dp]->fields->description) && !empty($decodedDataPolice->records[$dp]->fields->name)) {
-                $police = new PostesPolice();
+        for ($dp = 0; $dp < count($decodedDataPolice[2]->data); $dp++) {
+            $police = new PostesPolice();
 
-                $police->setNom($decodedDataPolice->records[$dp]->fields->name)
-                    ->setDescription($decodedDataPolice->records[$dp]->fields->description)
-                    ->setLatitude($decodedDataPolice->records[$dp]->fields->geometry->coordinates[1])
-                    ->setLongitude($decodedDataPolice->records[$dp]->fields->geometry->coordinates[0]);
-                $manager->persist($police);
-            }
+            $police->setNom($decodedDataPolice[2]->data[$dp]->nom)
+                ->setDescription($decodedDataPolice[2]->data[$dp]->description)
+                ->setLatitude($decodedDataPolice[2]->data[$dp]->latitude)
+                ->setLongitude($decodedDataPolice[2]->data[$dp]->longitude);
 
-        }
-
-        $dataPoliceNew = file_get_contents('http://vps791823.ovh.net/json/newpolice.json');
-        $decodedDataPoliceNew = json_decode($dataPoliceNew);
-
-        for ($dpn = 0; $dpn < count($decodedDataPoliceNew); $dpn++) {
-
-            $policeNew = new PostesPolice();
-
-            $policeNew->setNom($decodedDataPoliceNew[$dpn]->name)
-                ->setDescription("Commissariat")
-                ->setLatitude($decodedDataPoliceNew[$dpn]->latitude)
-                ->setLongitude($decodedDataPoliceNew[$dpn]->longitude);
-
-            $manager->persist($policeNew);
+            $manager->persist($police);
 
         }
 

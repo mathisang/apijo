@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EpreuvesRepository")
@@ -17,7 +18,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     itemOperations={"GET"},
  *     normalizationContext={
  *      "groups"={"epreuves"}
- *     }
+ *     },
  * )
  * @ApiFilter(SearchFilter::class, properties={"idStade":"exact", "idDate.date":"start"})
  */
@@ -59,8 +60,7 @@ class Epreuves
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Dates", inversedBy="epreuves")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"epreuves"})
-     * @Groups({"stades"})
+     * @Groups({"epreuves", "stades"})
      */
     private $idDate;
 
@@ -145,5 +145,33 @@ class Epreuves
     {
         $totalAffluence = $this->ratio_affluence * $this->getIdStade()->getCapacite();
         return $totalAffluence;
+    }
+
+    /**
+     * Calcul Affluence epreuve
+     * @SerializedName("maxDayAffluence")
+     * @Groups({"stades", "epreuves"})
+     * @return float|null
+     */
+    public function getMaxAffluence(): ?float
+    {
+        $maxAffluence = 0;
+
+        $epreuves = $this->getIdStade()->getEpreuves()->filter(function (Epreuves $epreuve) {
+            return $this->getIdDate() === $epreuve->getIdDate();
+        });
+
+        foreach ($epreuves as $e) {
+            /** @var Epreuves $e */
+            if ($maxAffluence < $e->getTotalAffluence()) {
+                $maxAffluence = $e->getTotalAffluence();
+            }
+        }
+
+        // Front qui doit filtré par rapport a la date actuelle pour recuperer que les bonnes epreuves mais deja calculer
+
+        // Google doc : MCD explicatif;
+
+        return $maxAffluence;
     }
 }

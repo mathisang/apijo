@@ -32,9 +32,7 @@ class Dates
 
     /**
      * @ORM\Column(type="date")
-     * @Groups({"dates"})
-     * @Groups({"stades"})
-     * @Groups({"epreuves"})
+     * @Groups({"dates", "stades", "epreuves"})
      */
     private $date;
 

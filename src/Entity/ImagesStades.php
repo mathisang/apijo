@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImagesStadesRepository")
@@ -32,6 +33,16 @@ class ImagesStades
      */
     private $idStade;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Récupérer le nom du fichier image
+     * @return string|null
+     * @Groups({"stades"})
+     */
     public function getNomImage(): ?string
     {
         return $this->nom_image;
