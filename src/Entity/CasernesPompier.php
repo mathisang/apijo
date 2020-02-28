@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CasernesPompierRepository")
@@ -23,6 +26,7 @@ class CasernesPompier
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"stades"})
      */
     private $nom;
 
@@ -50,6 +54,16 @@ class CasernesPompier
      * @ORM\Column(type="string", length=20)
      */
     private $longitude;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stades", mappedBy="pompiers")
+     */
+    private $stades;
+
+    public function __construct()
+    {
+        $this->stades = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -124,6 +138,37 @@ class CasernesPompier
     public function setLongitude(string $longitude): self
     {
         $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stades[]
+     */
+    public function getStades(): Collection
+    {
+        return $this->stades;
+    }
+
+    public function addStade(Stades $stade): self
+    {
+        if (!$this->stades->contains($stade)) {
+            $this->stades[] = $stade;
+            $stade->setPompiers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStade(Stades $stade): self
+    {
+        if ($this->stades->contains($stade)) {
+            $this->stades->removeElement($stade);
+            // set the owning side to null (unless already changed)
+            if ($stade->getPompiers() === $this) {
+                $stade->setPompiers(null);
+            }
+        }
 
         return $this;
     }

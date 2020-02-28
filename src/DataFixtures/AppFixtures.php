@@ -133,7 +133,7 @@ class AppFixtures extends Fixture
 
         }
 
-
+/*
         // Récupère la DATA des Stades
 
         $dataStade = file_get_contents('http://vps791823.ovh.net/json/stades.json');
@@ -150,7 +150,7 @@ class AppFixtures extends Fixture
                 ->setLongitude($decodedDataStade[2]->data[$ds]->longitude);
             $manager->persist($stade);
 
-        }
+        }*/
 
         // Récupère la DATA des Dates
 
@@ -168,6 +168,8 @@ class AppFixtures extends Fixture
 
         $manager->flush();
 
+        // STADES
         // APRÈS L'IMPORT, INJECTER LES ÉPREUVES
+        // PUIS IMAGES
     }
 }

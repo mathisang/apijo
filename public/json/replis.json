@@ -21,7 +21,13 @@
     {"id":"316","nom":"EDGAR VARESE","adresse":"16 rue ADOLPHE MILLE","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"370","latitude":"48.889159905051","longitude":"2.3885867483899"},
     {"id":"319","nom":"ANTOINE COYSEVOX","adresse":"16 rue COYSEVOX","cp":"75118","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"478","latitude":"48.891617627696","longitude":"2.3298201952318"},
     {"id":"320","nom":"SUZANNE LACORE","adresse":"149 BOULEVARD MACDONALD","cp":"75119","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"371","latitude":"48.898608723283","longitude":"2.3788765489695"},
-    {"id":"325","nom":"AMEDEO MODIGLIANI","adresse":"1 RUE DE CHERBOURG","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"437","latitude":"48.831702737297","longitude":"2.3047394660131"}
+    {"id":"325","nom":"AMEDEO MODIGLIANI","adresse":"1 RUE DE CHERBOURG","cp":"75115","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"437","latitude":"48.831702737297","longitude":"2.3047394660131"},
+    {"id":"328","nom":"Collège Pierre de Geyter","adresse":"58 Boulevard Marcel Sembat","cp":"93200","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"56","latitude":"48.933157","longitude":"2.351934"},
+    {"id":"329","nom":"Collège Henri Barbusse","adresse":"23 Rue de Sevran","cp":"93200","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"343","latitude":"48.939599","longitude":"2.377441"},
+    {"id":"330","nom":"François Truffaut","adresse":"2-6 Rue Paul Déroulède","cp":"92600","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"567","latitude":"48.910992","longitude":"2.282071"},
+    {"id":"331","nom":"Pierre de Nolhac","adresse":"8 Rue de Limoges","cp":"78000","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"678","latitude":"48.799331","longitude":"2.131587"},
+    {"id":"332","nom":"Les Saules","adresse":"36 Boulevard Paul Cézanne","cp":"78280","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"56","latitude":"48.784439","longitude":"2.053381"},
+    {"id":"333","nom":"René Goscinny","adresse":"13 Rue de la Grande Ferme","cp":"77360","type":"COLLEGES (année scolaire 2019\/2020)","capacite":"678","latitude":"48.870581","longitude":"2.647948"}
   ]
   }
 ]

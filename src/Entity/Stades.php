@@ -78,6 +78,30 @@ class Stades
      */
     private $favoris;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Hopitaux", inversedBy="stades")
+     * @Groups({"stades"})
+     */
+    private $hopitaux;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CasernesPompier", inversedBy="stades")
+     * @Groups({"stades"})
+     */
+    private $pompiers;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\PostesPolice", inversedBy="stades")
+     * @Groups({"stades"})
+     */
+    private $polices;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZoneRepli", inversedBy="stades")
+     * @Groups({"stades"})
+     */
+    private $replis;
+
     public function __construct()
     {
         $this->epreuves = new ArrayCollection();
@@ -224,6 +248,54 @@ class Stades
                 $favori->setIdStade(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHopitaux(): ?Hopitaux
+    {
+        return $this->hopitaux;
+    }
+
+    public function setHopitaux(?Hopitaux $hopitaux): self
+    {
+        $this->hopitaux = $hopitaux;
+
+        return $this;
+    }
+
+    public function getPompiers(): ?CasernesPompier
+    {
+        return $this->pompiers;
+    }
+
+    public function setPompiers(?CasernesPompier $pompiers): self
+    {
+        $this->pompiers = $pompiers;
+
+        return $this;
+    }
+
+    public function getPolices(): ?PostesPolice
+    {
+        return $this->polices;
+    }
+
+    public function setPolices(?PostesPolice $polices): self
+    {
+        $this->polices = $polices;
+
+        return $this;
+    }
+
+    public function getReplis(): ?ZoneRepli
+    {
+        return $this->replis;
+    }
+
+    public function setReplis(?ZoneRepli $replis): self
+    {
+        $this->replis = $replis;
 
         return $this;
     }
