@@ -42,16 +42,17 @@ security:
     # Note: Only the *first* access control that matches will be used
 
   access_control:
-    #- { path: ^/api/casernes_pompiers, roles: ROLE_USER }
-    #- { path: ^/api/dates, roles: ROLE_USER }
-    #- { path: ^/api/epreuves, roles: ROLE_USER }
-    #- { path: ^/api/favoris, roles: ROLE_USER }
+    - { path: ^/api/casernes_pompiers, roles: ROLE_USER }
+    - { path: ^/api/dates, roles: ROLE_USER }
+    - { path: ^/api/epreuves, roles: ROLE_USER }
+    - { path: ^/api/favoris, roles: ROLE_USER }
+    - { path: ^/api/stades, roles: ROLE_USER }
     - { path: ^/api/hopitauxes, roles: ROLE_USER }
-    #- { path: ^/api/postes_polices, roles: ROLE_USER }
-    #- { path: ^/api/images_stades, roles: ROLE_USER }
-    #- { path: ^/api/zone_replis, roles: ROLE_USER }
-    #- { path: ^/api/users, roles: ROLE_ADMIN, methods: [POST] }
-    #- { path: ^/api/users, roles: ROLE_USER, methods: [GET] }
+    - { path: ^/api/postes_polices, roles: ROLE_USER }
+    - { path: ^/api/images_stades, roles: ROLE_USER }
+    - { path: ^/api/zone_replis, roles: ROLE_USER }
+    - { path: ^/api/users, roles: ROLE_ADMIN, methods: [POST] }
+    - { path: ^/api/users, roles: ROLE_USER, methods: [GET] }
 
   # - { path: ^/admin, roles: ROLE_ADMIN }
   # - { path: ^/profile, roles: ROLE_USER }
