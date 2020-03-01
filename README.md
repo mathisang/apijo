@@ -73,6 +73,16 @@ http://vps791823.ovh.net/api/epreuves
 http://vps791823.ovh.net/api/epreuves?idStade=1&idDate.date=2024-07-28 (Filtre Date & Stade)
 ```
 
+- Liste des technologies utilisées
+
+```bash
+Symfony 4.4
+Composer
+DataFixtures
+LexikJWTAuthenticationBundle
+API Platform
+```
+
 ### Diagramme MCD
 
 ![mcd-sherpa](https://teddyboirin.com/assets/MCD-sherpa.png)
