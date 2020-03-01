@@ -1,12 +1,59 @@
 # Dossier d'expertise SHERPA - Groupe 3
 
+### Configuration requise
+
+- PHP 7.4
+- Composer & Symfony
+
+```bash
+git clone https://github.com/mathisang/apijo.git
+```
+
+- Configurer le fichier .env
+
+```bash
+composer install
+```
+
+```bash
+./bin/console doctrine:database:create
+```
+
+```bash
+./bin/console doctrine:migrations:migrate
+```
+
+- Générer la base de données (dans cet ordre)
+
+```bash
+./bin/console doctrine:fixtures:load
+```
+
+```bash
+cd public/sql
+mysql -u "user" -p "database" < stades.sql
+mysql -u "user" -p "database" < images.sql
+mysql -u "user" -p "database" < epreuves.sql
+```
+
+### Utilisation de l'API
+
+- Compte utilisateurs configurés
+
+```bash
+ministre1@gouv.fr
+password1
+ministre2@gouv.fr
+password2
+ministre3@gouv.fr
+password3
+```
+
 ### Diagramme MCD
 
 ![mcd-sherpa](https://teddyboirin.com/assets/MCD-sherpa.png)
-
-Avant de se lancer dans le projet, nous avons établi le MCD de la base de donnée de l’application. Notre base de donnée comporte plusieurs tables avec une grosse table importante comportant la liste des stades ainsi que leurs informations (capacité, photo, adresse...). Suite à ça, nous avons vu que cette table était celle qui communiquait le plus avec d’autres tables.
-
-Ainsi, ce MCD nous a permis d’avoir une vision globale de notre base de donnée et des éventuelles relations. Chaque table dépend d’une ou plusieurs autre table.
+Avant de se lancer dans le projet, nous avons récolté le maximum de DATA afin de structurer au mieux les éléments qui allaient consitutés notre application. Ensuite, nous avons établi le MCD de la base de donnée de l’application. Notre base de donnée comporte plusieurs tables, avec une grosse table importante comportant la liste des stades ainsi que leurs informations (capacité, photo, adresse...). Suite à ça, nous avons vu que cette table était celle qui communiquait le plus avec d’autres tables.
+Les stades sont en relations avec six de nos tables, qui elles mêmes peuvent-être en relation avec d’autres tables. Ainsi, ce MCD nous a permis d’avoir une vision globale de notre base de donnée et des éventuelles relations. Chaque table dépend d’une ou plusieurs autre table.
 
 ### Relations
 
