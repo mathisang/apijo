@@ -49,6 +49,30 @@ ministre3@gouv.fr
 password3
 ```
 
+- Requêtes API
+
+```bash
+Liste des casernes de pompiers
+http://vps791823.ovh.net/api/casernes_pompiers
+
+Liste des postes de police
+http://vps791823.ovh.net/api/postes_polices
+
+Liste des hopitaux
+http://vps791823.ovh.net/api/hopitauxes
+
+Liste des zones de replis
+http://vps791823.ovh.net/api/zone_replis
+
+Liste des stades
+http://vps791823.ovh.net/api/stades
+http://vps791823.ovh.net/api/stades?epreuves.idDate.date=2024-08-10 (Filtre Date)
+
+Liste des épreuves
+http://vps791823.ovh.net/api/epreuves
+http://vps791823.ovh.net/api/epreuves?idStade=1&idDate.date=2024-07-28 (Filtre Date & Stade)
+```
+
 ### Diagramme MCD
 
 ![mcd-sherpa](https://teddyboirin.com/assets/MCD-sherpa.png)
@@ -78,8 +102,9 @@ Enfin, nous avons utiliser LexikJWTAuthenticationBundle pour sécuriser notre ap
 
 La documentation est générée automatiquement par Swagger grâce aux différentes configurations de notre application. La façon de configurer API platform influe sur le rendu de cet documentation. Il faut donc annoter un descriptif de chaque nouveau champ calculé par exemple afin d’être le plus clair possible. Cette documentation permet alors d’utiliser l’API mais également de comprendre à quoi elle sert.
 
+Lien de la documentation API Platform :
+http://vps791823.ovh.net/api
+
 ### Personnes du groupe notées en Back
 
-Mathis Angibaud - Teddy Boirin 
-
- 
+Mathis Angibaud - Teddy Boirin
