@@ -11,7 +11,7 @@ use App\Entity\Stades;
 use App\Entity\User;
 use App\Entity\ZoneRepli;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -59,7 +59,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des zones_repli
 
-        $dataRepli = file_get_contents('http://vps791823.ovh.net/json/replis.json');
+        $dataRepli = file_get_contents('https://abigailpotee.fr/apijo/json/replis.json');
         $decodedDataRepli = json_decode($dataRepli);
 
         for ($dr = 0; $dr < count($decodedDataRepli[2]->data); $dr++) {
@@ -81,7 +81,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des hopitaux
 
-        $dataHopital = file_get_contents('http://vps791823.ovh.net/json/hopitaux.json');
+        $dataHopital = file_get_contents('https://abigailpotee.fr/apijo/json/hopitaux.json');
         $decodedDataHopital = json_decode($dataHopital);
 
         for ($dh = 0; $dh < count($decodedDataHopital[2]->data); $dh++) {
@@ -98,7 +98,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des pompiers
 
-        $dataPompier = file_get_contents('http://vps791823.ovh.net/json/pompiers.json');
+        $dataPompier = file_get_contents('https://abigailpotee.fr/apijo/json/pompiers.json');
         $decodedDataPompier = json_decode($dataPompier);
 
         for ($dp = 0; $dp < count($decodedDataPompier[2]->data); $dp++) {
@@ -118,7 +118,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des postes de police
 
-        $dataPolice = file_get_contents('http://vps791823.ovh.net/json/polices.json');
+        $dataPolice = file_get_contents('https://abigailpotee.fr/apijo/json/polices.json');
         $decodedDataPolice = json_decode($dataPolice);
 
         for ($dp = 0; $dp < count($decodedDataPolice[2]->data); $dp++) {
@@ -136,7 +136,7 @@ class AppFixtures extends Fixture
 /*
         // Récupère la DATA des Stades
 
-        $dataStade = file_get_contents('http://vps791823.ovh.net/json/stades.json');
+        $dataStade = file_get_contents('https://abigailpotee.fr/apijo/json/stades.json');
         $decodedDataStade = json_decode($dataStade);
 
         for ($ds = 0; $ds < count($decodedDataStade[2]->data); $ds++) {
@@ -154,7 +154,7 @@ class AppFixtures extends Fixture
 
         // Récupère la DATA des Dates
 
-        $dataDates = file_get_contents('http://vps791823.ovh.net/json/dates.json');
+        $dataDates = file_get_contents('https://abigailpotee.fr/apijo/json/dates.json');
         $decodedDataDates = json_decode($dataDates);
 
         for ($dd = 0; $dd < count($decodedDataDates[2]->data); $dd++) {
